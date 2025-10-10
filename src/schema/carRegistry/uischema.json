@@ -1,0 +1,88 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Group",
+      "label": "Owner Information",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/owner_first_name"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/owner_last_name"
+        }
+      ]
+    },
+    {
+      "type": "Group",
+      "label": "Car Details",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "Make",
+          "scope": "#/properties/car_make"
+        },
+        {
+          "type": "Control",
+          "label": "Model",
+          "scope": "#/properties/car_model"
+        },
+        {
+          "type": "Control",
+          "label": "Year",
+          "scope": "#/properties/car_year"
+        },
+        {
+          "type": "Control",
+          "label": "VIN",
+          "scope": "#/properties/vin"
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "Registration Date",
+          "scope": "#/properties/registration_date"
+        },
+        {
+          "type": "Control",
+          "label": "Expiry Date",
+          "scope": "#/properties/expiry_date"
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "label": "Active Registration",
+      "scope": "#/properties/is_active"
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "Condition",
+          "scope": "#/properties/condition"
+        },
+        {
+          "type": "Control",
+          "label": "Mileage",
+          "scope": "#/properties/mileage"
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "label": "Description",
+      "scope": "#/properties/description",
+      "options": {
+        "multi": true
+      }
+    }
+  ]
+}

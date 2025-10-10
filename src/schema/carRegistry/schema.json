@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "properties": {
+    "owner_first_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "owner_last_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "car_make": {
+      "type": "string",
+      "minLength": 1
+    },
+    "car_model": {
+      "type": "string",
+      "minLength": 1
+    },
+    "car_year": {
+      "type": "integer",
+      "minimum": 1886
+    },
+    "vin": {
+      "type": "string",
+      "minLength": 11,
+      "maxLength": 17
+    },
+    "description": {
+      "title": "Vehicle Description",
+      "type": "string"
+    },
+    "registration_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "expiry_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "is_active": {
+      "type": "boolean"
+    },
+    "condition": {
+      "type": "string",
+      "enum": ["New", "Like New", "Used", "Needs Repair"]
+    },
+    "mileage": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "owner_first_name",
+    "owner_last_name",
+    "car_make",
+    "car_model",
+    "car_year",
+    "vin",
+    "registration_date",
+    "expiry_date",
+    "is_active"
+  ]
+}

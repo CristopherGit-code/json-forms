@@ -1,19 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
+import { createRoot } from 'react-dom/client';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { StrictMode } from 'react';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// Control spacing
+const theme = createTheme({
+  components: {
+    MuiFormControl: {
+      styleOverrides: {
+        root: {
+          margin: '0.8rem 1rem',
+        },
+      },
+    },
+  },
+});
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const rootEl = document.getElementById('root');
+
+if (!rootEl) throw new Error('Failed to find the root element');
+
+createRoot(rootEl).render(
+  <StrictMode>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
+  </StrictMode>,
+);

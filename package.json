@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@jsonforms/core": "^3.6.0",
+    "@jsonforms/examples": "^3.6.0",
+    "@jsonforms/material-renderers": "^3.6.0",
+    "@jsonforms/react": "^3.6.0",
+    "@mui/material": "^7.3.4",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
