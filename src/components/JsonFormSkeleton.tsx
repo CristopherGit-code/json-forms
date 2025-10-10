@@ -11,9 +11,9 @@ import RatingControl from './rating/RatingControl';
 import ratingControlTester from './rating/ratingControlTester';
 import { Section } from '../App';
 
-import schema from '../schema/example/schema.json';
-import uischema from '../schema/example/uischema.json';
-import ExampleRegistry from '../schema/example/typedExample';
+import todoSchema from '../schema/example/schema.json';
+import todoUiSchema from '../schema/example/uischema.json';
+import TodoRegistry from '../schema/example/typedExample';
 
 import carSchema from '../schema/carRegistry/schema.json'
 import carUiSchema from '../schema/carRegistry/uischema.json'
@@ -44,21 +44,44 @@ const renderers = [
   { tester: ratingControlTester, renderer: RatingControl },
 ];
 
-
 interface JsonFormSkeletonProps {
   activeSection: Section
+  schema?: any
+  uiSchema?: any
 }
 
-export const JsonFormSkeleton: FC<JsonFormSkeletonProps> = ({activeSection}) => {
+export const JsonFormSkeleton: FC<JsonFormSkeletonProps> = ({ activeSection, schema, uiSchema }) => {
+
+  console.log(schema)
+  console.log(uiSchema)
+
   const [data, setData] = useState<object>({});
+  const [formData, setFormData] = useState<string>("");
+  const [formState, setFormState] = useState<number>(0);
+
   const stringifiedData = useMemo(() => JSON.stringify(data, null, 2), [data]);
 
-  const useDataDetails = () => {
-    if(activeSection === 'registry'){
-      const jsonData = JSON.parse(stringifiedData) as CarRegistry
-    }else{
-      const jsonData = JSON.parse(stringifiedData)
+  const legacy_schema = activeSection === "registry" ? carSchema : todoSchema
+  const legacy_ui_schema = activeSection === "registry" ? carUiSchema : todoUiSchema
+  const legacy_title: string = activeSection === "registry" ? "Car registry" : "TODO list sample"
+
+  const setCurrentState = () =>{
+    if (schema === null && activeSection !== "upload"){
+      setFormState(0)
+    }else if (schema === null){
+      setFormState(1)
     }
+  }
+
+  const useDataDetails = () => {
+    alert(`Data submitted: ${stringifiedData}`)
+    // if (activeSection === 'registry') {
+    //   const jsonData = JSON.parse(stringifiedData) as CarRegistry
+    //   setFormData(jsonData.car_model)
+    // } else {
+    //   const jsonData = JSON.parse(stringifiedData) as TodoRegistry
+    // }
+    
   };
   return (
     <Grid
@@ -68,17 +91,30 @@ export const JsonFormSkeleton: FC<JsonFormSkeletonProps> = ({activeSection}) => 
       style={classes.container}>
       <Grid>
         <Typography variant={'h4'}>
-          {activeSection === "registry" ? "Car registry" : "Example tutorial Schema"}
+          {schema === null ? "Sample schema view" : activeSection === "upload" ? "Sample schema view" : legacy_title}
         </Typography>
         <div style={classes.demoform}>
-          <JsonForms
-            schema={activeSection === "registry" ? carSchema : schema}
-            uischema={activeSection === "registry" ? carUiSchema : uischema}
+          {activeSection !== "upload" ? (
+            <JsonForms
+            schema={legacy_schema}
+            uischema={legacy_ui_schema}
             data={data}
             renderers={renderers}
             cells={materialCells}
             onChange={({ data }) => setData(data)}
-          />
+            />
+          ) : schema === null ? (
+            <></>
+          ) : (
+            <JsonForms
+            schema={schema}
+            uischema={uiSchema}
+            data={data}
+            renderers={renderers}
+            cells={materialCells}
+            onChange={({ data }) => setData(data)}
+            />
+          )}
         </div>
         <Button
           style={classes.resetButton}

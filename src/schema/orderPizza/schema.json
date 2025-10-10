@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "customer_name": {
+      "type": "string",
+      "minLength": 1,
+      "title": "Customer Name"
+    },
+    "address": {
+      "type": "string",
+      "minLength": 1,
+      "title": "Delivery Address"
+    },
+    "pizza_size": {
+      "type": "string",
+      "enum": ["Small", "Medium", "Large"],
+      "title": "Pizza Size"
+    },
+    "toppings": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["Cheese", "Pepperoni", "Mushrooms", "Onions", "Peppers", "Olives", "Bacon", "Pineapple"]
+      },
+      "minItems": 0,
+      "uniqueItems": true,
+      "title": "Toppings"
+    },
+    "quantity": {
+      "type": "integer",
+      "minimum": 1,
+      "default": 1,
+      "title": "Number of Pizzas"
+    },
+    "delivery_instructions": {
+      "type": "string",
+      "title": "Delivery Instructions"
+    },
+    "rating": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "title": "Order Rating"
+    },
+    "express_delivery": {
+      "type": "boolean",
+      "title": "Express Delivery"
+    }
+  },
+  "required": ["customer_name", "address", "pizza_size", "quantity"]
+}

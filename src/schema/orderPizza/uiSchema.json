@@ -1,0 +1,61 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Label",
+      "text": "Customer Information"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/customer_name"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/address"
+    },
+    {
+      "type": "Label",
+      "text": "Pizza Details"
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/pizza_size"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/quantity"
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/toppings",
+      "label": "Toppings"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/delivery_instructions",
+      "options": {
+        "multi": true
+      }
+    },
+    {
+      "type": "Control",
+      "label": "Express Delivery",
+      "scope": "#/properties/express_delivery"
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "Order Rating",
+          "scope": "#/properties/rating"
+        }
+      ]
+    }
+  ]
+}

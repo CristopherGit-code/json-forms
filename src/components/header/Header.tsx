@@ -11,7 +11,8 @@ interface HeaderProps {
 export const Header: FC<HeaderProps> = ({ activeSection, onSectionChange }) => {
   const navItems: { id: Section; label: string }[] = [
     { id: "registry", label: "Car Registry" },
-    { id: "example", label: "Example Form" }
+    { id: "example", label: "TODO list" },
+    { id: "upload", label: "Upload form" }
   ]
 
   return (

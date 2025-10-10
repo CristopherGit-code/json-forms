@@ -1,4 +1,4 @@
-export default interface ExampleRegistry {
+export default interface TodoRegistry {
     name: string;
     last_name?: string;
     description?: string;

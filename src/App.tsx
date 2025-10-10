@@ -4,7 +4,7 @@ import { JsonFormSkeleton } from './components/JsonFormSkeleton';
 import { useState } from 'react';
 import { FormHandler } from './components/FormHandler';
 
-export type Section = "registry" | "example";
+export type Section = "registry" | "example" | "upload";
 
 const App = () => {
   const [activeSection, setActiveSection] = useState<Section>('registry')
