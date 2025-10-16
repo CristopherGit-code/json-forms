@@ -1,0 +1,31 @@
+{
+    "type": "Categorization",
+    "elements": [
+        {
+            "type": "Category",
+            "label": "Basic",
+            "elements": [
+                {
+                    "type": "HorizontalLayout",
+                    "elements": [
+                        {
+                            "type": "Control",
+                            "scope": "#/properties/address"
+                        },
+                        {
+                            "type": "Control",
+                            "scope": "#/properties/building_type",
+                            "options": {
+                                "format": "radio"
+                            }
+                        },
+                        {
+                            "type":"Control",
+                            "scope": "#/properties/services"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

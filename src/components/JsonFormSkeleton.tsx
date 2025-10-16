@@ -75,6 +75,8 @@ export const JsonFormSkeleton: FC<JsonFormSkeletonProps> = ({ activeSection, sch
 
   const useDataDetails = () => {
     alert(`Data submitted: ${stringifiedData}`)
+    const final_data = JSON.parse(stringifiedData)
+    console.log(final_data)
     // if (activeSection === 'registry') {
     //   const jsonData = JSON.parse(stringifiedData) as CarRegistry
     //   setFormData(jsonData.car_model)
@@ -128,3 +130,21 @@ export const JsonFormSkeleton: FC<JsonFormSkeletonProps> = ({ activeSection, sch
     </Grid>
   );
 };
+
+/* 
+Radio button
+Numered arrays with different elements inside
+Sorting arrays with buttons and elements inside
+drop down
+rating scale
+possible to switch languages (i18n)
+time picker
+date picker
+multiselect
+
+Horizontal, vertical and group layouts
+
+categorization to create different pages or form tabs
+
+rules to show or not the elements, nor, activate
+*/

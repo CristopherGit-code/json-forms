@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "address": {
+            "type": "string",
+            "minLength": 3,
+            "description": "Enter the user address"
+        },
+        "building_type": {
+            "type": "string",
+            "enum": [
+                "Residencial",
+                "Commerecial"
+            ]
+        },
+        "services": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+                "type": "string",
+                "enum": [
+                    "Electric",
+                    "Gas"
+                ]
+            }
+        }
+    }
+}
