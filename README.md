@@ -1,46 +1,16 @@
-# Getting Started with Create React App
+# JSONForms application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sample json forms application that builds functional web forms from JSON schemas and patterns
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Navigate between tabs to discover different forms types and schemas
+- Try by yourself using the *upload* tab, just copy and paste the json schema and UI schema
+- Go a step further and try using AI generation, enable the running server, OCI model and see AI magic
 
-### `npm start`
+## Setup
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. For the web side only, enter the ```client``` folder and do ```npm start```, this page contains functional json forms samples and also the playgroupd to try the forms itself.
+2. You can find the shcemas used over ```client/src/schema``` folder, discover from the simple to complex applications
+3. To use the AI mode, install python dependencies, set up the ```.env``` file with OCI models credentials and make sure to adjust the ```oci_config.json``` file to your current user.
+4. Ruin the AI server using uvicorn from ```client/app/server/main``` use port 8000 as default in react app.
