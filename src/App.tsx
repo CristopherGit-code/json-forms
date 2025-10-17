@@ -1,10 +1,9 @@
 import './styles/App.css'
 import { Header } from './components/Header';
-import { JsonFormSkeleton } from './components/forms/JsonFormSkeleton';
 import { useState } from 'react';
 import { FormHandler } from './components/FormHandler';
 
-export type Section = "registry" | "example" | "oiaform" | "upload";
+export type Section = "registry" | "example" | "oiaform" | "upload" | "aiform";
 
 const App = () => {
   const [activeSection, setActiveSection] = useState<Section>('registry')

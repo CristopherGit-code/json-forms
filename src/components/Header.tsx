@@ -12,8 +12,9 @@ export const Header: FC<HeaderProps> = ({ activeSection, onSectionChange }) => {
   const navItems: { id: Section; label: string }[] = [
     { id: "registry", label: "Car Registry" },
     { id: "example", label: "TODO list" },
+    { id: "upload", label: "Upload form" },
     { id: "oiaform", label: "OIA form" },
-    { id: "upload", label: "Upload form" }
+    { id: "aiform", label: "AI form" }
   ]
 
   return (

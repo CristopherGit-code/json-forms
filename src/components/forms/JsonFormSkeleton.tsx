@@ -9,6 +9,8 @@ import {
 } from '@jsonforms/material-renderers';
 import RatingControl from '../custom/rating/RatingControl';
 import ratingControlTester from '../custom/rating/ratingControlTester';
+import SliderControl from '../custom/slider/SliderControl'
+import sliderControlTester from '../custom/slider/sliderControlTester';
 import { Section } from '../../App';
 
 import todoSchema from '../../schema/example/schema.json';
@@ -42,6 +44,7 @@ const renderers = [
   ...materialRenderers,
   //register custom renderers
   { tester: ratingControlTester, renderer: RatingControl },
+  { tester: sliderControlTester, renderer: SliderControl }
 ];
 
 interface JsonFormSkeletonProps {
@@ -51,10 +54,6 @@ interface JsonFormSkeletonProps {
 }
 
 export const JsonFormSkeleton: FC<JsonFormSkeletonProps> = ({ activeSection, schema, uiSchema }) => {
-
-  console.log(schema)
-  console.log(uiSchema)
-
   const [data, setData] = useState<object>({});
   const [formData, setFormData] = useState<string>("");
   const [formState, setFormState] = useState<number>(0);

@@ -3,6 +3,7 @@ import type { Section } from "../App"
 import { JsonFormSkeleton } from "./forms/JsonFormSkeleton"
 import { JsonViewer } from "./Viewer"
 import { OIA } from './forms/OIA'
+import { AIForm } from "./AIForm"
 import '../styles/formHandler.css'
 
 interface FormHandlerProps {
@@ -16,6 +17,7 @@ export const FormHandler: FC<FormHandlerProps> = ({ activeSection }) => {
       {activeSection === "example" && <JsonFormSkeleton activeSection={activeSection} />}
       {activeSection === "oiaform" && <OIA />}
       {activeSection === "upload" && <JsonViewer />}
+      {activeSection === "aiform" && <AIForm />}
     </main>
   )
 }

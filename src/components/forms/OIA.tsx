@@ -15,6 +15,7 @@ import ratingControlTester from '../custom/rating/ratingControlTester';
 import SliderControl from '../custom/slider/SliderControl'
 import sliderControlTester from '../custom/slider/sliderControlTester';
 import { ProjectionBill } from '../ProjectionBill';
+import { SubmitSummary } from '../FormSubmitted'
 
 import oiaSchema from '../../schema/oai/schema.json'
 import oiaUiSchema from '../../schema/oai/uiSchema.json'
@@ -31,6 +32,7 @@ export const OIA = () => {
     const [data, setData] = useState<object>({});
     const [showElement, setShowElement] = useState<boolean>(false);
     const [jsonData, setJsonData] = useState<Record<string, any> | null>(null);
+    const [submitForm, setSubmitForm] = useState<boolean>(false)
 
     const stringifiedData = useMemo(() => JSON.stringify(data, null, 2), [data]);
 
@@ -54,50 +56,64 @@ export const OIA = () => {
     }, [stringifiedData]);
 
     const useDataDetails = () => {
-        alert(`Data submitted: ${stringifiedData}`);
-        const parsedData = JSON.parse(stringifiedData);
-        console.log(parsedData);
+        console.log(data)
+        setSubmitForm(true);
     };
     const clearForm = () => {
+        setSubmitForm(false);
         setData({});
         setShowElement(false);
         setJsonData(null);
     }
 
     return (
-        <Grid container justifyContent={'center'} spacing={1} className='oia-container'>
-            <Grid>
-                <Typography variant={'h4'}>OIA Energy Demo</Typography>
-                <div className='oia-demoform'>
-                    <JsonForms
-                        schema={oiaSchema}
-                        uischema={oiaUiSchema}
-                        data={data}
-                        renderers={renderers}
-                        cells={materialCells}
-                        onChange={({ data }) => setData(data)}
-                    />
-                </div>
-                <div className='oia-buttons'>
+        <>
+            {!submitForm ? (
+                <Grid container justifyContent={'center'} spacing={1} className='oia-container'>
+                    <Grid>
+                        <Typography variant={'h4'}>OIA Energy Demo</Typography>
+                        <div className='oia-demoform'>
+                            <JsonForms
+                                schema={oiaSchema}
+                                uischema={oiaUiSchema}
+                                data={data}
+                                renderers={renderers}
+                                cells={materialCells}
+                                onChange={({ data }) => setData(data)}
+                            />
+                        </div>
+                        <div className='oia-buttons'>
+                            <Button onClick={clearForm}
+                                color="primary"
+                                variant="contained"
+                                data-testid="clear-data">
+                                Clear
+                            </Button>
+                            <Button onClick={useDataDetails}
+                                color="secondary"
+                                variant="contained"
+                                data-testid="update-data">
+                                Submit
+                            </Button>
+                        </div>
+                    </Grid>
+                    {showElement && jsonData && (
+                        <ProjectionBill
+                            data={jsonData}
+                        />
+                    )}
+                </Grid>
+            ) : (
+                <div>
+                    <SubmitSummary data={data} />
                     <Button onClick={clearForm}
-                        color="primary"
-                        variant="contained"
-                        data-testid="clear-data">
-                        Clear
-                    </Button>
-                    <Button onClick={useDataDetails}
                         color="secondary"
                         variant="contained"
                         data-testid="update-data">
-                        Submit
+                        Back
                     </Button>
                 </div>
-            </Grid>
-            {showElement && jsonData && (
-                <ProjectionBill
-                    data={jsonData}
-                />
             )}
-        </Grid>
+        </>
     );
 };
