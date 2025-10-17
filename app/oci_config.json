@@ -1,0 +1,7 @@
+{
+    "oci_agent": {
+        "configFile" : "~/.oci/config",
+        "profile" : "API-USER",
+        "endpoint": "https://inference.generativeai.us-chicago-1.oci.oraclecloud.com"
+    }
+}
