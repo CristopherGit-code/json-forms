@@ -3,7 +3,7 @@
     "elements": [
         {
             "type": "Category",
-            "label": "Basic",
+            "label": "Basic information",
             "elements": [
                 {
                     "type": "HorizontalLayout",
@@ -20,12 +20,137 @@
                             }
                         },
                         {
-                            "type":"Control",
+                            "type": "Control",
                             "scope": "#/properties/services"
+                        }
+                    ]
+                },
+                {
+                    "type": "VerticalLayout",
+                    "elements": [
+                        {
+                            "type": "Control",
+                            "scope": "#/properties/residence_area_slider"
+                        },
+                        {
+                            "type": "Control",
+                            "scope": "#/properties/water_heaters",
+                            "options": {
+                                "format": "radio"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "HorizontalLayout",
+                    "elements": [
+                        {
+                            "type": "Control",
+                            "label": "Furnance fan",
+                            "scope": "#/properties/furnance_fan"
+                        },
+                        {
+                            "type": "Control",
+                            "label": "Sump pump",
+                            "scope": "#/properties/sump_pump"
+                        },
+                        {
+                            "type": "Control",
+                            "label": "Air conditioner",
+                            "scope": "#/properties/air_conditioner"
                         }
                     ]
                 }
             ]
+        },
+        {
+            "type": "Category",
+            "label": "Potential Savings",
+            "elements": [
+                {
+                    "type": "HorizontalLayout",
+                    "elements": [
+                        {
+                            "type": "Control",
+                            "scope": "#/properties/replace_water_heaters",
+                            "options": {
+                                "format": "radio"
+                            }
+                        },
+                        {
+                            "type": "Control",
+                            "scope": "#/properties/replace_smart_thermo",
+                            "options": {
+                                "format": "radio"
+                            }
+                        }
+                    ],
+                    "rule": {
+                        "effect": "SHOW",
+                        "condition": {
+                            "scope": "#/properties/water_heaters",
+                            "schema": {
+                                "not": { "const":0 }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "VerticalLayout",
+                    "elements": [
+                        {
+                            "type": "Control",
+                            "scope": "#/properties/no_bulbs_slider"
+                        },
+                        {
+                            "type": "Control",
+                            "scope": "#/properties/benefit_years_slider"
+                        }
+                    ]
+                },
+                {
+                    "type": "Control",
+                    "label": "Would you like to schedule a Home Energy Audit?",
+                    "scope": "#/properties/audit"
+                }
+            ]
+        },
+        {
+            "type": "Category",
+            "label": "Home Energy Audit",
+            "elements": [
+                {
+                    "type": "Control",
+                    "label": "Pick a date",
+                    "scope": "#/properties/date"
+                },
+                {
+                    "type": "Control",
+                    "scope": "#/properties/time",
+                    "label": "Best time",
+                    "options": {
+                        "format": "time"
+                    }
+                },
+                {
+                    "type": "Control",
+                    "label": "Email for further details",
+                    "scope": "#/properties/email"
+                }
+            ],
+            "rule": {
+                "effect": "SHOW",
+                "condition": {
+                    "scope": "#/properties/audit",
+                    "schema": {
+                        "const": true
+                    }
+                }
+            }
         }
-    ]
+    ],
+    "options": {
+        "variant": "stepper",
+        "showNavButtons": true
+    }
 }

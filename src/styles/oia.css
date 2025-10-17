@@ -1,0 +1,13 @@
+.oia-container {
+    padding: 1rem;
+    width: 100%;
+}
+.oia-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.oia-demoform {
+    margin: auto;
+    padding: 1rem;
+}

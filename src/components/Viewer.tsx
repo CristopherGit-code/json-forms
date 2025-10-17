@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import type { FC } from "react"
-import { JsonFormSkeleton } from "./JsonFormSkeleton"
+import { JsonFormSkeleton } from "./forms/JsonFormSkeleton"
 import "../styles/viewer.css"
 
 export const JsonViewer: FC = () => {

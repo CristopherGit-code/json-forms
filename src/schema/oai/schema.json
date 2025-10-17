@@ -23,6 +23,80 @@
                     "Gas"
                 ]
             }
+        },
+        "residence_area_slider": {
+            "type": "integer",
+            "description": "Enter the residence square feet area",
+            "maximum": 5000,
+            "minimum": 500,
+            "default": 2000
+        },
+        "water_heaters": {
+            "type": "integer",
+            "enum": [
+                0,
+                1,
+                2
+            ]
+        },
+        "furnance_fan": {
+            "type": "boolean"
+        },
+        "sump_pump": {
+            "type": "boolean"
+        },
+        "air_conditioner": {
+            "type": "boolean"
+        },
+        "replace_water_heaters": {
+            "type": "integer",
+            "enum": [
+                0,
+                1,
+                2,
+                3
+            ]
+        },
+        "replace_smart_thermo": {
+            "type": "integer",
+            "enum": [
+                0,
+                1,
+                2,
+                3
+            ]
+        },
+        "no_bulbs_slider": {
+            "type": "integer",
+            "description": "# of bulbs",
+            "maximum": 20,
+            "minimum": 0,
+            "default": 2
+        },
+        "benefit_years_slider": {
+            "type": "integer",
+            "description": "Years to evaluate benefit",
+            "maximum": 10,
+            "minimum": 1,
+            "default": 2
+        },
+        "audit": {
+            "type": "boolean"
+        },
+        "date": {
+            "type": "string",
+            "format": "date"
+        },
+        "time":{
+            "type":"string"
+        },
+        "email":{
+            "type":"string"
         }
-    }
+    },
+    "required":[
+        "address",
+        "building_type",
+        "no_bulbs_slider"
+    ]
 }

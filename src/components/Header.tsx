@@ -1,7 +1,7 @@
 "use client"
 import type { FC } from "react"
-import type { Section } from "../../App"
-import '../../styles/header.css'
+import type { Section } from "../App"
+import '../styles/header.css'
 
 interface HeaderProps {
   activeSection: Section
@@ -12,6 +12,7 @@ export const Header: FC<HeaderProps> = ({ activeSection, onSectionChange }) => {
   const navItems: { id: Section; label: string }[] = [
     { id: "registry", label: "Car Registry" },
     { id: "example", label: "TODO list" },
+    { id: "oiaform", label: "OIA form" },
     { id: "upload", label: "Upload form" }
   ]
 

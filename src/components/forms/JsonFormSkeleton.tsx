@@ -7,17 +7,17 @@ import {
   materialCells,
   materialRenderers,
 } from '@jsonforms/material-renderers';
-import RatingControl from './rating/RatingControl';
-import ratingControlTester from './rating/ratingControlTester';
-import { Section } from '../App';
+import RatingControl from '../custom/rating/RatingControl';
+import ratingControlTester from '../custom/rating/ratingControlTester';
+import { Section } from '../../App';
 
-import todoSchema from '../schema/example/schema.json';
-import todoUiSchema from '../schema/example/uischema.json';
-import TodoRegistry from '../schema/example/typedExample';
+import todoSchema from '../../schema/example/schema.json';
+import todoUiSchema from '../../schema/example/uischema.json';
+import TodoRegistry from '../../schema/example/typedExample';
 
-import carSchema from '../schema/carRegistry/schema.json'
-import carUiSchema from '../schema/carRegistry/uischema.json'
-import CarRegistry from '../schema/carRegistry/typedCarRegistry'
+import carSchema from '../../schema/carRegistry/schema.json'
+import carUiSchema from '../../schema/carRegistry/uischema.json'
+import CarRegistry from '../../schema/carRegistry/typedCarRegistry'
 
 const classes = {
   container: {

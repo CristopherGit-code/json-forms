@@ -1,0 +1,16 @@
+.bill-container{
+    background-color: #f3f2f2;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-left: 1.5rem;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.bill-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
